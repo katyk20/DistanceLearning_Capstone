@@ -4,7 +4,10 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNvSBRk1n1zWN7DkX79M/N+",
+      "collapsed_sections": [
+        "tPkecDB3-_HJ"
+      ],
+      "authorship_tag": "ABX9TyNiXoUlLLGeLA7LpS4f2W6K",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -23,46 +26,46 @@
         "colab_type": "text"
       },
       "source": [
-        "<a href=\"https://colab.research.google.com/github/katyk20/DistanceLearning_Capstone/blob/main/NCES_IPEDS_Dataset.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+        "<a href=\"https://colab.research.google.com/github/katyk20/DistanceLearning_Capstone/blob/main/Code\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
       ]
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": 126,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "Q1CbZG2MEBWE",
-        "outputId": "bc9447ea-f8f0-4f56-def3-c4cde6959e1a"
+        "outputId": "f9531d0f-3e4d-4ec4-ab0d-18412e9c75e2"
       },
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Mounted at /content/drive\n"
+            "Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(\"/content/drive\", force_remount=True).\n"
           ]
         }
       ],
       "source": [
-        "from google.colab import drive\n",
-        "drive.mount('/content/drive')"
+        "# from google.colab import drive\n",
+        "# drive.mount('/content/drive')"
       ]
     },
     {
       "cell_type": "code",
       "source": [
-        "! git clone https://github.com/katyk20/DistanceLearning_Capstone"
+        "# ! git clone https://github.com/katyk20/DistanceLearning_Capstone"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "yj_ClGUZENYl",
-        "outputId": "76c93f85-e8fa-4f13-bc2c-14320dc86fc3"
+        "outputId": "41d42ec6-6df9-4947-c554-4607d042a65f"
       },
-      "execution_count": 33,
+      "execution_count": 154,
       "outputs": [
         {
           "output_type": "stream",
@@ -84,37 +87,33 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "CfUukVAZK6jm",
-        "outputId": "ee8ef197-1f7e-44ad-a101-573610be09f7"
+        "outputId": "0f6b9e42-74bd-4a32-a66d-1d7e9e022ed5"
       },
-      "execution_count": 57,
+      "execution_count": 170,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
             "/content/DistanceLearning_Capstone\n",
-            "remote: Enumerating objects: 20, done.\u001b[K\n",
-            "remote: Counting objects: 100% (20/20), done.\u001b[K\n",
-            "remote: Compressing objects: 100% (18/18), done.\u001b[K\n",
-            "remote: Total 18 (delta 12), reused 0 (delta 0), pack-reused 0\u001b[K\n",
-            "Unpacking objects: 100% (18/18), 5.50 KiB | 626.00 KiB/s, done.\n",
+            "remote: Enumerating objects: 15, done.\u001b[K\n",
+            "remote: Counting objects: 100% (15/15), done.\u001b[K\n",
+            "remote: Compressing objects: 100% (13/13), done.\u001b[K\n",
+            "remote: Total 13 (delta 7), reused 0 (delta 0), pack-reused 0\u001b[K\n",
+            "Unpacking objects: 100% (13/13), 11.52 MiB | 2.79 MiB/s, done.\n",
             "From https://github.com/katyk20/DistanceLearning_Capstone\n",
-            "   5121029..47d0662  main       -> origin/main\n",
-            "Updating 5121029..47d0662\n",
+            "   e9ea5af..5ac0039  main       -> origin/main\n",
+            "Updating e9ea5af..5ac0039\n",
             "Fast-forward\n",
-            " NCES IPEDS Data 2019-2022/c2019dep_DATA.csv     | 240406 \u001b[31m----------------------------------------\u001b[m\n",
-            " NCES IPEDS Data 2019-2022/c2020dep_DATA.csv     | 238693 \u001b[31m----------------------------------------\u001b[m\n",
-            " NCES IPEDS Data 2019-2022/c2021dep_DATA.csv     | 241820 \u001b[31m-----------------------------------------\u001b[m\n",
-            " NCES IPEDS Data 2019-2022/ef2019a_dist_DATA.csv |  22859 \u001b[31m----\u001b[m\n",
-            " NCES IPEDS Data 2019-2022/ef2020a_dist_DATA.csv |  22657 \u001b[31m----\u001b[m\n",
-            " NCES IPEDS Data 2019-2022/ef2021a_dist_DATA.csv |  22464 \u001b[31m----\u001b[m\n",
-            " 6 files changed, 788899 deletions(-)\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/c2019dep_DATA.csv\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/c2020dep_DATA.csv\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/c2021dep_DATA.csv\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/ef2019a_dist_DATA.csv\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/ef2020a_dist_DATA.csv\n",
-            " delete mode 100644 NCES IPEDS Data 2019-2022/ef2021a_dist_DATA.csv\n"
+            " NCES IPEDS Data 2019-2022/ef2020a_rv.csv | 117882 \u001b[32m++++++++++++++++++++++++++++++++++++++++++++++++\u001b[m\n",
+            " NCES IPEDS Data 2019-2022/ef2021a_rv.csv | 116966 \u001b[32m+++++++++++++++++++++++++++++++++++++++++++++++\u001b[m\n",
+            " NCES IPEDS Data 2019-2022/ef2022a_1.csv  | 100001 \u001b[32m++++++++++++++++++++++++++++++++++++++++\u001b[m\n",
+            " NCES IPEDS Data 2019-2022/ef2022a_2.csv  |  16111 \u001b[32m+++++++\u001b[m\n",
+            " 4 files changed, 350960 insertions(+)\n",
+            " create mode 100644 NCES IPEDS Data 2019-2022/ef2020a_rv.csv\n",
+            " create mode 100644 NCES IPEDS Data 2019-2022/ef2021a_rv.csv\n",
+            " create mode 100644 NCES IPEDS Data 2019-2022/ef2022a_1.csv\n",
+            " create mode 100644 NCES IPEDS Data 2019-2022/ef2022a_2.csv\n"
           ]
         }
       ]
@@ -130,7 +129,7 @@
       "metadata": {
         "id": "qYSNcA94EcQC"
       },
-      "execution_count": 58,
+      "execution_count": 129,
       "outputs": []
     },
     {
@@ -207,18 +206,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "7p-vpUd1E82r",
-        "outputId": "803e29da-2f6d-496c-8176-aa52eb262e00"
+        "outputId": "f270f48d-93b9-4c22-e973-256a09fa43ef"
       },
-      "execution_count": 59,
+      "execution_count": 130,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Year: 2019, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2019_DATA.csv\n",
+            "Year: 2020, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2020_DATA.csv\n",
             "Year: 2022, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2022_DATA.csv\n",
             "Year: 2021, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2021_DATA.csv\n",
-            "Year: 2020, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2020_DATA.csv\n"
+            "Year: 2019, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/hd2019_DATA.csv\n"
           ]
         }
       ]
@@ -246,7 +245,7 @@
       "metadata": {
         "id": "NWyA0Yt3FRG4"
       },
-      "execution_count": 85,
+      "execution_count": 131,
       "outputs": []
     },
     {
@@ -263,9 +262,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "lByttR9bH0ea",
-        "outputId": "c53ad1d1-12fd-4ff3-89ca-b36192bf0dba"
+        "outputId": "9497e2db-c295-4299-a4e0-8c1b3b87e2d2"
       },
-      "execution_count": 61,
+      "execution_count": 132,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -275,7 +274,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 61
+          "execution_count": 132
         }
       ]
     },
@@ -325,9 +324,9 @@
     {
       "cell_type": "code",
       "source": [
-        "#get EF datasets by years\n",
+        "#get EFXXXa datasets by years\n",
         "path = '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022'\n",
-        "ef_files = glob.glob(path + '/ef*.csv')\n",
+        "ef_files = glob.glob(path + '/ef*dist*.csv')\n",
         "ef_files\n",
         "\n",
         "ef_file_dict = {}  # Dictionary to store file paths with year as key\n",
@@ -337,17 +336,35 @@
         "    ef_file_dict[year] = file_path  # Store the file path in the dictionary with year as key\n",
         "\n",
         "\n",
-        "# ef_file_dict\n",
+        "ef_file_dict\n",
         "\n",
         "# Access each file by its year\n",
         "# for year, file_path in ef_file_dict.items():\n",
         "#     print(f\"Year: {year}, File Path: {file_path}\")\n"
       ],
       "metadata": {
-        "id": "WmBbjR1fPaAH"
+        "id": "WmBbjR1fPaAH",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "37a6f19a-44ce-45af-974a-f4988e36ea2c"
       },
-      "execution_count": 87,
-      "outputs": []
+      "execution_count": 133,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'2020': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2020a_dist_rv_DATA.csv',\n",
+              " '2021': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2021a_dist_rv_DATA.csv',\n",
+              " '2019': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2019a_dist_rv_DATA.csv',\n",
+              " '2022': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2022a_dist_DATA.csv'}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 133
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -364,7 +381,7 @@
       "metadata": {
         "id": "YTW62EG3T6YX"
       },
-      "execution_count": 83,
+      "execution_count": 134,
       "outputs": []
     },
     {
@@ -375,26 +392,26 @@
         "ef2020=ef_dfs.get('2020') #(22663, 20)\n",
         "ef2021=ef_dfs.get('2021') #(22469, 20)\n",
         "ef2022=ef_dfs.get('2022') #(22239, 20)\n",
-        "ef2022.shape\n"
+        "ef2020.shape\n"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "MrgemZ3_Rcdd",
-        "outputId": "292c3d18-8dde-434e-a4ca-8dd3cc4ce200"
+        "outputId": "341f5499-a332-4458-f8de-552aa46cf9ec"
       },
-      "execution_count": 82,
+      "execution_count": 135,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "(22239, 20)"
+              "(22663, 20)"
             ]
           },
           "metadata": {},
-          "execution_count": 82
+          "execution_count": 135
         }
       ]
     },
@@ -406,8 +423,17 @@
       "metadata": {
         "id": "UWnv0D6IXmGh"
       },
-      "execution_count": 104,
+      "execution_count": 136,
       "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Merging institution data  with enrollment datasets"
+      ],
+      "metadata": {
+        "id": "Ejkfz2Lk_WVG"
+      }
     },
     {
       "cell_type": "code",
@@ -421,7 +447,7 @@
       "metadata": {
         "id": "MaefiRrHUHdB"
       },
-      "execution_count": 98,
+      "execution_count": 137,
       "outputs": []
     },
     {
@@ -435,19 +461,39 @@
       "metadata": {
         "id": "E7UKABNDVutL"
       },
-      "execution_count": 101,
+      "execution_count": 138,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "# dep2019"
+        "dep2020.columns"
       ],
       "metadata": {
-        "id": "9ko8p_TfWTJF"
+        "id": "9ko8p_TfWTJF",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "277a2699-bd24-4405-ab28-ddcf9a651e96"
       },
-      "execution_count": 116,
-      "outputs": []
+      "execution_count": 139,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Index(['UNITID', 'INSTNM', 'IALIAS', 'STABBR', 'ICLEVEL', 'CONTROL', 'HLOFFER',\n",
+              "       'DEGGRANT', 'PSEFLAG', 'LONGITUD', 'LATITUDE', 'EFDELEV', 'XEFDETOT',\n",
+              "       'EFDETOT', 'XEFDEEXC', 'EFDEEXC', 'XEFDESOM', 'EFDESOM', 'XEFDENON',\n",
+              "       'EFDENON', 'XEFDEEX1', 'EFDEEX1', 'XEFDEEX2', 'EFDEEX2', 'XEFDEEX3',\n",
+              "       'EFDEEX3', 'XEFDEEX4', 'EFDEEX4', 'XEFDEEX5', 'EFDEEX5 '],\n",
+              "      dtype='object')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 139
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -458,26 +504,361 @@
         "\n",
         "  return cleaned_df\n",
         "\n",
-        "dep2019 = cleaneddf(dep2019)\n",
-        "dep2020 = cleaneddf(dep2020)\n",
-        "dep2021 = cleaneddf(dep2021)\n",
-        "dep2022 = cleaneddf(dep2022)\n"
+        "#master datasets by year\n",
+        "dep_2019 = cleaneddf(dep2019)\n",
+        "dep_2020 = cleaneddf(dep2020)\n",
+        "dep_2021 = cleaneddf(dep2021)\n",
+        "dep_2022 = cleaneddf(dep2022)\n"
       ],
       "metadata": {
         "id": "DxKdXIkBXT_R"
       },
-      "execution_count": 114,
+      "execution_count": 140,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "#dep2022"
+        "#ef2022a file to large to upload to GitHub- split+ concat\n",
+        "#insert into dictionary below\n",
+        "\n",
+        "ef2022a_1=pd.read_csv('/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2022a_1.csv')\n",
+        "ef2022_a2=pd.read_csv('/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2022a_2.csv')\n",
+        "ef2022a= pd.concat([ef2022a_1, ef2022_a2], ignore_index=True)\n",
+        "ef2022a.to_csv('ef2022a.csv', index=False)"
+      ],
+      "metadata": {
+        "id": "q04m42b9XQcg"
+      },
+      "execution_count": 185,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Merge Age, Gender, Race with institution identifying names\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "1HzEgkXW0NWF"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#get demographic datasets by years with variables of interest (race/ethnicity and gender\n",
+        "\n",
+        "path = '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022'\n",
+        "rg_files = glob.glob(path + '/*a_*.csv')\n",
+        "rg_files = [file for file in rg_files if \"dist\" not in file]\n",
+        "rg_files\n",
+        "rg_file_dict = {}  # Dictionary to store file paths with year as key\n",
+        "\n",
+        "for file_path in rg_files:\n",
+        "    file_name = os.path.basename(file_path)  # Get the filename from the path\n",
+        "    year = file_name[2:6]  # Extract the year from the filename\n",
+        "    rg_file_dict[year] = file_path  # Store the file path in the dictionary with year as key\n",
+        "rg_file_dict\n",
+        "new_file='/content/DistanceLearning_Capstone/ef2022a.csv'\n",
+        "rg_file_dict['2022'] = new_file\n",
+        "rg_file_dict\n",
+        "# # Access each file by its year\n",
+        "# for year, file_path in rg_file_dict.items():\n",
+        "#     print(f\"Year: {year}, File Path: {file_path}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_XhuYbJ5--IZ",
+        "outputId": "b9bd0582-e9ff-4d02-c6d7-40bdfd0f5d5b"
+      },
+      "execution_count": 184,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'2021': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2021a_rv.csv',\n",
+              " '2022': '/content/DistanceLearning_Capstone/ef2022a.csv',\n",
+              " '2019': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2019a_rv.csv',\n",
+              " '2020': '/content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/ef2020a_rv.csv'}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 184
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "rg_dfs = {}\n",
+        "\n",
+        "#read each file and create df- store to ef_df dict\n",
+        "for year, file_path in rg_file_dict.items():\n",
+        "  df= pd.read_csv(file_path,encoding='unicode_escape' )\n",
+        "  rg_dfs[year]=df\n",
+        "\n",
+        "# rg_dfs"
+      ],
+      "metadata": {
+        "id": "lF4Atrp4ZVWN"
+      },
+      "execution_count": 188,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#retrieving individual datasets from dict\n",
+        "rg2019=rg_dfs.get('2019') #(118917, 65)\n",
+        "rg2020=rg_dfs.get('2020') #(117881, 65)\n",
+        "rg2021=rg_dfs.get('2021') #(116965, 65)\n",
+        "rg2022=rg_dfs.get('2022') #(116110, 73)\n",
+        "rg2022.shape\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cD_0u0KkZJVo",
+        "outputId": "cf618fad-661b-4a2c-a266-36414c580882"
+      },
+      "execution_count": 203,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(116110, 73)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 203
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# rg2022.columns\n",
+        "# rg2021.columns\n",
+        "#2022 columns not in other datasets- remove\n",
+        "cols_drop=['XEFGNDRU', 'EFGNDRUN', 'XEFGNDRA', 'EFGNDRAN',\n",
+        "'XEFGNDRU.1', 'EFGNDRUA', 'XEFGNDRK', 'EFGNDRKN']\n",
+        "rg2022=rg2022.drop(columns=cols_drop, axis=1)\n",
+        "rg2022.shape"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qQUB7htEaACm",
+        "outputId": "ba1cdbff-08fd-48f3-f5e5-7b99a0e5c0c4"
+      },
+      "execution_count": 205,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(116110, 65)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 205
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# rg2022.columns"
+      ],
+      "metadata": {
+        "id": "aEMn612yeY8Z"
+      },
+      "execution_count": 237,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "cols_keep= cols_keep=['UNITID',\n",
+        "                       'EFTOTLT', 'EFTOTLM', 'EFTOTLW',\n",
+        "                      'EFAIANT', 'EFAIANM', 'EFAIANW', 'EFASIAT',\n",
+        "                      'EFASIAM', 'EFASIAW', 'EFBKAAT', 'EFBKAAM',\n",
+        "                      'EFBKAAW', 'EFHISPT', 'EFHISPM', 'EFHISPW',\n",
+        "                      'EFNHPIT', 'EFNHPIM', 'EFNHPIW', 'EFWHITT',\n",
+        "                      'EFWHITM', 'EFWHITW', 'EF2MORT', 'EF2MORM',\n",
+        "                      'EF2MORW', 'EFUNKNT', 'EFUNKNM', 'EFUNKNW',\n",
+        "                      'EFNRALT', 'EFNRALM', 'EFNRALW']\n",
+        "\n",
+        "\n",
+        "def rg_cols_keep(df):\n",
+        "  cleaned_df = df[cols_keep]\n",
+        "  return cleaned_df\n",
+        "\n",
+        "#remove white space in columns\n",
+        "rg2019=rg2019.rename(columns=lambda x: x.strip())\n",
+        "rg2020=rg2020.rename(columns=lambda x: x.strip())\n",
+        "rg2021=rg2021.rename(columns=lambda x: x.strip())\n",
+        "\n",
+        "rg_2019 =rg_cols_keep(rg2019)\n",
+        "rg_2020 =rg_cols_keep(rg2020)\n",
+        "rg_2021 =rg_cols_keep(rg2021)\n",
+        "rg_2022 =rg_cols_keep(rg2022)\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "xTxqJjdYaDlG"
+      },
+      "execution_count": 234,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# # dep_2019.shape\n",
+        "rg_2019.shape\n",
+        "# hd2019.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PZ-lhFalgrWU",
+        "outputId": "c59e4987-2969-4226-886b-5245ead4fc26"
+      },
+      "execution_count": 244,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(118917, 31)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 244
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#merge race/gender data with institution information (hd)\n",
+        "\n",
+        "def rg_hd_merge(df1, df2):\n",
+        "  newdf=pd.merge(df1, df2,  on='UNITID',how='inner')\n",
+        "  return newdf\n",
+        "\n",
+        "# rg2019_inst=pd.merge(hd2019,rg_2019, on='UNITID',\n",
+        "#                           how='inner')\n",
+        "rginst2019=rg_hd_merge(hd2019, rg_2019)\n",
+        "rginst2020=rg_hd_merge(hd2020, rg_2020)\n",
+        "rginst2021=rg_hd_merge(hd2021, rg_2021)\n",
+        "rginst2022=rg_hd_merge(hd2022, rg_2022)\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zwdFjQoSgdYp",
+        "outputId": "386e41cc-235f-45e1-bb3b-30d4e0538272"
+      },
+      "execution_count": 247,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(118917, 41)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 247
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Data Quality Checks"
+      ],
+      "metadata": {
+        "id": "tPkecDB3-_HJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#dep2022\n",
+        "# Check for duplicates- No duplicates found\n",
+        "# def check_dup(df):\n",
+        "  #duplicate_rows = dep2021[dep2021.duplicated()]\n",
+        "  #print(duplicate_rows)\n",
+        "\n",
+        "# check_dup(dep2019)\n",
+        "\n"
       ],
       "metadata": {
         "id": "-lF8XV_OiN2o"
       },
-      "execution_count": 116,
+      "execution_count": 142,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# # Check data types\n",
+        "# def check_dt (df):\n",
+        "#   data_types = dep2019.dtypes\n",
+        "#   return data_types\n",
+        "# check_dt(dep2019)"
+      ],
+      "metadata": {
+        "id": "HnXuAMb59Iy_"
+      },
+      "execution_count": 143,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#change object data types\n",
+        "\n",
+        "#strings\n",
+        "\n",
+        "\n",
+        "#floats"
+      ],
+      "metadata": {
+        "id": "cyHTq1xY9HKy"
+      },
+      "execution_count": 144,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "hkUExv83-yIF"
+      },
+      "execution_count": 144,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "OyedVstn-xpg"
+      },
+      "execution_count": 144,
       "outputs": []
     },
     {
@@ -565,18 +946,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "o3UPBWXZpKT8",
-        "outputId": "f7fa5292-b325-4ef5-d96e-48eccdec0825"
+        "outputId": "725794ff-4183-43c1-a272-aeff2146b4c6"
       },
-      "execution_count": 125,
+      "execution_count": 145,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Year: 2022, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2022dep_DATA.csv\n",
-            "Year: 2021, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2021dep_rv_DATA.csv\n",
             "Year: 2019, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2019dep_rv_DATA.csv\n",
-            "Year: 2020, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2020dep_rv_DATA.csv\n"
+            "Year: 2020, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2020dep_rv_DATA.csv\n",
+            "Year: 2022, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2022dep_DATA.csv\n",
+            "Year: 2021, File Path: /content/DistanceLearning_Capstone/NCES IPEDS Data 2019-2022/c2021dep_rv_DATA.csv\n"
           ]
         }
       ]
@@ -596,7 +977,7 @@
       "metadata": {
         "id": "H4MZODQiqEYO"
       },
-      "execution_count": 128,
+      "execution_count": 146,
       "outputs": []
     },
     {
@@ -613,7 +994,7 @@
       "metadata": {
         "id": "ae7aF_xIqQVj"
       },
-      "execution_count": 159,
+      "execution_count": 147,
       "outputs": []
     },
     {
@@ -626,9 +1007,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "fege-M8KyH8y",
-        "outputId": "800c9bb2-a20d-4781-b680-6a094350baf6"
+        "outputId": "d2596c7d-8c72-4a3d-b06f-b675fdd11f06"
       },
-      "execution_count": 160,
+      "execution_count": 148,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -643,7 +1024,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 160
+          "execution_count": 148
         }
       ]
     },
@@ -671,25 +1052,71 @@
       "metadata": {
         "id": "h11GoGOJq3hv"
       },
-      "execution_count": 167,
+      "execution_count": 149,
       "outputs": []
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "#merging c files with hd institutional info\n",
+        "c2019_m=pd.merge(hd2019, c2019, on='UNITID', how='outer')\n",
+        "c2020_m=pd.merge(hd2020, c2020, on='UNITID', how='outer')\n",
+        "c2021_m=pd.merge(hd2021, c2021, on='UNITID', how='outer')\n",
+        "c2022_m=pd.merge(hd2022, c2022, on='UNITID', how='outer')"
+      ],
       "metadata": {
         "id": "NYgAmj8AwHFB"
       },
-      "execution_count": 174,
+      "execution_count": 150,
       "outputs": []
     },
     {
       "cell_type": "code",
-      "source": [],
+      "source": [
+        "# checking for NaN\n",
+        "# c2022_m.isna().sum()"
+      ],
       "metadata": {
         "id": "eOl3J8dRwJqt"
       },
-      "execution_count": null,
+      "execution_count": 151,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#function to clean datasets (remove Nans)\n",
+        "vars_to_check=['CIPCODE', 'PTOTAL', 'PTOTALDE', 'PASSOC', 'PASSOCDE',\n",
+        "       'PBACHL', 'PBACHLDE', 'PMASTR', 'PMASTRDE', 'PDOCRS', 'PDOCRSDE',\n",
+        "       'PDOCPP', 'PDOCPPDE', 'PDOCOT', 'PDOCOTDE', 'PCERT1B', 'PCERT1BDE',\n",
+        "       'PCERT2', 'PCERT2DE', 'PCERT4', 'PCERT4DE', 'PPBACC', 'PPBACCDE',\n",
+        "       'PPMAST', 'PPMASTDE']\n",
+        "def clean_c(df, vars_to_check):\n",
+        "  cleaned_df = df.dropna(subset =vars_to_check)\n",
+        "\n",
+        "  return cleaned_df\n",
+        "\n",
+        "#master datasets by year\n",
+        "c2019dep2 = clean_c(c2019_m,vars_to_check)\n",
+        "c2020dep2 = clean_c(c2020_m,vars_to_check)\n",
+        "c2021dep2 = clean_c(c2021_m,vars_to_check)\n",
+        "c2022dep2 = clean_c(c2022_m,vars_to_check)\n"
+      ],
+      "metadata": {
+        "id": "pcUl-Xqw4yvQ"
+      },
+      "execution_count": 152,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#try inner merge with ef/hd merged file"
+      ],
+      "metadata": {
+        "id": "b3oYakwo8NjK"
+      },
+      "execution_count": 153,
       "outputs": []
     }
   ]
